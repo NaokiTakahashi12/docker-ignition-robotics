@@ -12,7 +12,7 @@ BLUEPRINT := blueprint
 CITADEL := citadel
 
 # Image type
-BINALY := binaly
+BINALY := binary
 BINALY_CUDAGL_102 := $(BINALY)-with-cudagl-10.2
 BINALY_CUDAGL_92 := $(BINALY)-with-cudagl-9.2
 DEVEL := devel
