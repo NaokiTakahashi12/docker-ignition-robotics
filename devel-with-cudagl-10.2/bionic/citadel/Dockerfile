@@ -36,5 +36,8 @@ RUN apt update \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
+COPY ./entrypoint/devel.sh /ign_entrypoint.sh
+ENTRYPOINT ["/ign_entrypoint.sh"]
+
 CMD ["/bin/bash"]
 
