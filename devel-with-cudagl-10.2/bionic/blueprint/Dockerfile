@@ -20,8 +20,8 @@ RUN apt update \
     && colcon build \
         --merge-install \
         --symlink-install \
-        --executor parallel \
-        --parallel-workers 4 \
+        --executor sequential \
+        --parallel-workers 1 \
     && python3 -m pip uninstall -y \
         vcstool \
         colcon-common-extensions \
