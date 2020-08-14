@@ -22,6 +22,8 @@ RUN apt update \
         --symlink-install \
         --executor parallel \
         --parallel-workers 4 \
+        --cmake-args -DCMAKE_BUILD_TYPE=Release \
+        --cmake-args -DBUILD_TESTING=OFF \
     && python3 -m pip uninstall -y \
         vcstool \
         colcon-common-extensions \
