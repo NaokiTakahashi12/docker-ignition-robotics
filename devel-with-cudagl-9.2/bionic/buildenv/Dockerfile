@@ -9,24 +9,25 @@ RUN apt update \
         lsb-release \
         software-properties-common \
         wget \
+        curl \
     && sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list' \
     && wget http://packages.osrfoundation.org/gazebo.key -O - | apt-key add - \
+    && curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add - \
+    && sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list' \
     && apt update \
     && apt remove -y \
         lsb-release \
         software-properties-common \
         wget \
+        curl \
     && apt clean \
     && apt autoremove -y \
     && rm -rf /ver/lib/apt/lists/*
 
 RUN apt update \
-    && apt upgrade -y \
-    && apt install -y \
-        python3-pip \
     ## from official documentation
     && apt install -y \
-        cmake freeglut3-dev libavcodec-dev libavdevice-dev \
+        freeglut3-dev libavcodec-dev libavdevice-dev \
         libavformat-dev libavutil-dev libdart6-collision-ode-dev libdart6-dev \
         libdart6-utils-urdf-dev libfreeimage-dev libgflags-dev \
         libglew-dev libgts-dev libogre-1.9-dev libogre-2.1-dev \
@@ -41,15 +42,10 @@ RUN apt update \
         libjsoncpp-dev libcurl4-openssl-dev libyaml-dev libzmq3-dev \
         libsqlite3-dev libwebsockets-dev swig ruby-dev \
     ## Shortage packages
-    && python3 -m pip --no-cache-dir install --upgrade \
-        setuptools \
-    && python3 -m pip --no-cache-dir install \
-        six \
     && apt install -y \
+        python3-six \
         libbenchmark-dev \
         python-psutil \
-    && apt remove -y \
-        python3-pip \
     && apt clean \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
