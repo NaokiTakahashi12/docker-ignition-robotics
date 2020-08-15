@@ -45,7 +45,7 @@ RUN apt update \
     && apt install -y \
         python3-six \
         libbenchmark-dev \
-        python-psutil \
+        python3-psutil \
     && apt clean \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
