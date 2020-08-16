@@ -32,6 +32,7 @@ RUN apt update \
         python3-colcon-common-extensions \
     && rm -rf collection-citadel.yaml \
     && rm -rf build \
+    && rm -rf log \
     && apt clean \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/*
