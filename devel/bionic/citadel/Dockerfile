@@ -21,7 +21,7 @@ RUN apt update \
         --symlink-install \
         --executor parallel \
         --parallel-workers 4 \
-        --cmake-args -DCMAKE_BUILD_TYPE=Release \
+        --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo \
         --cmake-args -DBUILD_TESTING=OFF \
     && apt remove -y \
         g++-8 \
