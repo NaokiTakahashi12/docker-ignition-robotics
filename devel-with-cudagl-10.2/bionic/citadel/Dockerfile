@@ -4,7 +4,7 @@ FROM naokitakahashi12/ignition:buildenv-cudagl-10.2-bionic
 ENV CXX=g++-8
 
 RUN apt update \
-    && apt install -y \
+    && apt install -y --no-install-recommends \
         g++-8 \
         wget \
         git \
@@ -23,7 +23,7 @@ RUN apt update \
         --parallel-workers 4 \
         --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo \
         --cmake-args -DBUILD_TESTING=OFF \
-    && apt remove -y \
+    && apt --purge remove -y \
         g++-8 \
         wget \
         git \

@@ -17,7 +17,7 @@ RUN apt update \
     && add-apt-repository -y ppa:ubuntu-x-swat/updates \
     && apt update \
     && apt dist-upgrade -y \
-    && apt remove -y \
+    && apt --purge remove -y \
         lsb-release \
         software-properties-common \
         wget \
@@ -28,7 +28,7 @@ RUN apt update \
 
 RUN apt update \
     ## from official documentation
-    && apt install -y \
+    && apt install -y --no-install-recommends \
         freeglut3-dev libavcodec-dev libavdevice-dev \
         libavformat-dev libavutil-dev libdart6-collision-ode-dev libdart6-dev \
         libdart6-utils-urdf-dev libfreeimage-dev libgflags-dev \
@@ -44,7 +44,7 @@ RUN apt update \
         libjsoncpp-dev libcurl4-openssl-dev libyaml-dev libzmq3-dev \
         libsqlite3-dev libwebsockets-dev swig ruby-dev \
     ## Shortage packages
-    && apt install -y \
+    && apt install -y --no-install-recommends \
         python3-six \
         libbenchmark-dev \
         python3-psutil \

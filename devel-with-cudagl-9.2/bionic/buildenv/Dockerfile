@@ -15,7 +15,7 @@ RUN apt update \
     && curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add - \
     && sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list' \
     && apt update \
-    && apt remove -y \
+    && apt --purge remove -y \
         lsb-release \
         software-properties-common \
         wget \
@@ -26,7 +26,7 @@ RUN apt update \
 
 RUN apt update \
     ## from official documentation
-    && apt install -y \
+    && apt install -y --no-install-recommends \
         freeglut3-dev libavcodec-dev libavdevice-dev \
         libavformat-dev libavutil-dev libdart6-collision-ode-dev libdart6-dev \
         libdart6-utils-urdf-dev libfreeimage-dev libgflags-dev \
@@ -42,7 +42,7 @@ RUN apt update \
         libjsoncpp-dev libcurl4-openssl-dev libyaml-dev libzmq3-dev \
         libsqlite3-dev libwebsockets-dev swig ruby-dev \
     ## Shortage packages
-    && apt install -y \
+    && apt install -y --no-install-recommends \
         python3-six \
         libbenchmark-dev \
         python3-psutil \
