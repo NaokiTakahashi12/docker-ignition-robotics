@@ -17,9 +17,9 @@ RUN apt update \
     && apt update \
     && apt dist-upgrade -y \
     && apt upgrade -y \
-    && apt install -y \
+    && apt install -y --no-install-recommends \
         ignition-citadel \
-    && apt remove -y \
+    && apt --purge remove -y \
         dirmngr \
         gnupg2 \
         lsb-release \

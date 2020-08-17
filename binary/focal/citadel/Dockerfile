@@ -15,9 +15,9 @@ RUN apt update \
     && echo "deb http://packages.osrfoundation.org/gazebo/$ID-stable `lsb_release -sc` main" > /etc/apt/sources.list.d/gazebo-latest.list \
     && apt update \
     && apt upgrade -y \
-    && apt install -y \
+    && apt install -y --no-install-recommends \
         ignition-citadel \
-    && apt remove -y \
+    && apt --purge remove -y \
         dirmngr \
         gnupg2 \
         lsb-release \
