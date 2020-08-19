@@ -16,9 +16,9 @@ RUN apt update \
     && wget http://packages.osrfoundation.org/gazebo.key -O - | apt-key add - \
     && apt update \
     && apt upgrade -y \
-    && apt install -y \
+    && apt install -y --no-install-recommends \
         ignition-blueprint \
-    && apt remove -y \
+    && apt --purge remove -y \
         dirmngr \
         gnupg2 \
         lsb-release \
