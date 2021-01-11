@@ -1,5 +1,5 @@
 
-FROM naokitakahashi12/ignition:buildenv-focal
+FROM naokitakahashi12/ignition:buildenv-cudagl-11.0-focal
 
 RUN apt update \
     && apt install -y --no-install-recommends \
