@@ -20,8 +20,7 @@ RUN apt update \
         --merge-install \
         --symlink-install \
         --executor sequential \
-        --parallel-workers 1 \
-        --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+        --cmake-args -DCMAKE_BUILD_TYPE=Release \
         --cmake-args -DBUILD_TESTING=OFF \
     && apt --purge remove -y \
         g++-8 \

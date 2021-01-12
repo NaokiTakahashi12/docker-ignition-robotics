@@ -19,9 +19,8 @@ RUN apt update \
     && colcon build \
         --merge-install \
         --symlink-install \
-        --executor parallel \
-        --parallel-workers 4 \
-        --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+        --executor sequential \
+        --cmake-args -DCMAKE_BUILD_TYPE=Release \
         --cmake-args -DBUILD_TESTING=OFF \
     && apt --purge remove -y \
         g++-8 \
