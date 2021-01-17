@@ -6,6 +6,7 @@ This is a container for [ignition robotics](https://ignitionrobotics.org/home).
 
 + Blueprint
 + Citadel
++ Dome
 
 ## Usage
 
@@ -17,3 +18,10 @@ See [here](https://github.com/NaokiTakahashi12/docker-compose-ignition-robotics)
 $ make build
 ```
 
+#### Note: All containers will be built.
+
+When building a single container. (e.g. ignition:citadel-focal)
+
+```shell
+$ make citadel-focal
+```
